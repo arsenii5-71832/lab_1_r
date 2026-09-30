@@ -465,6 +465,7 @@ def clean_order_value(df):
         except:
             return np.nan
 
+    df['order_value'] = df['order_value'].astype(object)
     df.loc[purchase_mask, 'order_value'] = df.loc[purchase_mask, 'order_value'].apply(parse_ov)
     df['order_value'] = pd.to_numeric(df['order_value'], errors='coerce')
 
@@ -479,6 +480,7 @@ def clean_order_value(df):
 def clean_items_count(df):
     df = df.copy()
     purchase_mask = df['event_type'] == 'purchase'
+    df['items_count'] = df['items_count'].astype(object)
     df.loc[purchase_mask, 'items_count'] = pd.to_numeric(df.loc[purchase_mask, 'items_count'], errors='coerce')
     zero_mask = purchase_mask & (df['items_count'] == 0)
     modified = zero_mask.sum()
