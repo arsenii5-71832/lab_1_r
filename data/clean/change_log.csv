@@ -1,0 +1,10 @@
+step,rows_removed,rows_modified,description
+1_parse_timestamps,0,0,Видалено рядки з непарсованим timestamp
+2_remove_full_dupes,1469,0,Видалено точні дублі рядків
+3_remove_near_dupes,84,0,"Видалено майже-дублі (±2с, той самий ключ)"
+4_remove_bots,5075,0,Видалено бот-сесії (UA + >2 подій/сек)
+5_normalize_categories,0,126415,"Нормалізовано device, country, source, medium, campaign"
+6_clean_order_value,0,33,Видалено neg/zero order_value (замінено на NaN)
+7_clean_items_count,0,28,items_count=0 замінено на NaN для purchases
+8_normalize_timezone,0,34904,Приведено Europe/Kyiv → UTC (−3 год)
+SUMMARY,6628,0,"Загалом: 76,023 → 69,395 рядків (видалено 6,628)"
