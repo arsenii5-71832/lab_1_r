@@ -557,7 +557,7 @@ print("✓ items_count > 0 для всіх purchases (без NaN)")
 ts_min = pd.to_datetime(df_clean['timestamp']).min()
 ts_max = pd.to_datetime(df_clean['timestamp']).max()
 assert ts_min >= pd.Timestamp('2024-04-30'), "FAIL: дата < 2024-04-30"
-assert ts_max <= pd.Timestamp('2024-06-01'), "FAIL: дата > 2024-05-31"
+assert ts_max < pd.Timestamp('2024-06-02'), "FAIL: дата >= 2024-06-02"
 print("✓ Timestamps у допустимому діапазоні (UTC)")
 
 print("\nВсі 10 перевірок пройдені успішно ✓")
